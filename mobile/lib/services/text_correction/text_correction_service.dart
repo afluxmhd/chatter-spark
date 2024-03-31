@@ -15,7 +15,7 @@ class TextCorrectionServices {
       final responseModel = ResponseModel(body: response.entries.first.value, isError: false);
       return responseModel;
     } catch (e) {
-      return ResponseModel(body: '', isError: true, errorMessage: e.toString());
+      return ResponseModel(body: '', isError: true, errorMessage: e.toString().replaceAll('Exception:', ''));
     }
   }
 }

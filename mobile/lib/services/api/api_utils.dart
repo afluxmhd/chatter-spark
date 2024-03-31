@@ -6,7 +6,7 @@ dynamic processResponse(http.Response response) {
     case 200: // OK.
       return json.decode(response.body);
     case 400: // Bad Request.
-      throw Exception('Request error. Please retry.');
+      throw Exception('Request error: Please check your API key');
     case 401: // Unauthorized.
       throw Exception('Login needed. Check your access.');
     case 403: // Forbidden.

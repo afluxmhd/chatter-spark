@@ -39,7 +39,7 @@ class ChatController extends StateNotifier<bool> {
     var correctText = '';
 
     final pref = await SharedPreferences.getInstance();
-    final apiKey = pref.getString('api-key'); // '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'.
+    final apiKey = pref.getString('api-key');
 
     if (apiKey != null) {
       final textCorrectionServices = TextCorrectionServices(apiClient: APIClient(apiKey: apiKey), apiRoutes: APIRoutes());
