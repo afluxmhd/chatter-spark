@@ -38,18 +38,25 @@ class ChatController extends StateNotifier<bool> {
     state = true;
     var correctText = '';
 
+    print("I/P: ${text}");
+
     final pref = await SharedPreferences.getInstance();
     final apiKey = pref.getString('api-key');
 
     if (apiKey != null) {
-      final textCorrectionServices = TextCorrectionServices(apiClient: APIClient(apiKey: apiKey), apiRoutes: APIRoutes());
-      await textCorrectionServices.getCorrectSentence(text).then((value) {
-        if (!value.isError) {
-          correctText = value.body;
-        } else {
-          showSnackBar(context, value.errorMessage);
-        }
-      });
+      try {
+        final textCorrectionServices = TextCorrectionServices(apiClient: APIClient(apiKey: apiKey), apiRoutes: APIRoutes());
+        await textCorrectionServices.getCorrectSentence(text).then((value) {
+          if (!value.isError) {
+            correctText = value.body;
+            print("O/P: ${correctText}");
+          } else {
+            showSnackBar(context, value.errorMessage);
+          }
+        });
+      } catch (e) {
+        showSnackBar(context, e.toString());
+      }
     } else {
       // ignore: use_build_context_synchronously
       showSnackBar(context, 'API Key is not configured. \nPlease configure it from the settings');
