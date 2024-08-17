@@ -27,5 +27,13 @@ The Chatter Spark Application delivers a dynamic chat experience with integrated
 
 </p>
 
+## Tech Stack
+
+- **Flutter**: Used for developing the mobile application, providing a rich and responsive user interface.
+- **Python- FastAPI**: Powers the backend functionalities, handling server-side logic and integrations.
+- **Pre-trained Vennify Language Model**: Utilized for advanced text correction, leveraging NLP to enhance message accuracy.
+- **Firebase**: Provides essential database services and user authentication for secure data management and user access.
+- **Koyeb**: Manages server deployment, ensuring reliable and scalable application performance.
+
 
 
